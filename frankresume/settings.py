@@ -89,6 +89,7 @@ WSGI_APPLICATION = 'frankresume.wsgi.application'
 #     }
 # }
 
+# Postgres
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',

@@ -10,6 +10,9 @@ class Skill(models.Model):
     image = models.FileField(default='skills_default.jpg', upload_to='skills_images')
     is_key_skill = models.BooleanField(default=False)
 
+    def __str__(self):
+        return self.name
+
     class Meta:
         verbose_name_plural = 'Skills'
         verbose_name = 'Skill'
@@ -19,11 +22,15 @@ class Skill(models.Model):
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    avatar = models.ImageField(default='default_profile.jpg', upload_to='profile_images')
+    avatar = models.ImageField(default='default_profile.jpg',
+                               upload_to='profile_images',
+                               blank=True,
+                               null=True)
     title = models.CharField(max_length=200)
     skills = models.ManyToManyField(Skill)
     bio = models.TextField()
-    cv = models.FileField(upload_to='cv')
+    cv = models.FileField(upload_to='cv',
+                          blank=True, null=True)
 
     def __str__(self):
         return f'{self.user.first_name} {self.user.last_name}'
