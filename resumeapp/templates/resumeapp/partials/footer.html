@@ -2,17 +2,28 @@
 <!-- ================================
 Start Footer
 ================================= -->
+
 <footer>
     <div class="footerCol">
     <div class="container">
+
         <ul class="socialCol">
-        <li><a href="javascript:void(0)"><img src="{% static 'images/fb.svg' %}" alt="..."></a></li>
-        <li><a href="javascript:void(0)"><img src="{% static 'images/insta.svg' %}" alt="..."></a></li>
-        <li><a href="javascript:void(0)"><img src="{% static 'images/twitter.svg' %}" alt="..."></a></li>
-        <li><a href="javascript:void(0)"><img src="{% static 'images/linkedin.svg' %}" alt="..."></a></li>
+              <div class="container text-center">
+                  {% for s in socialmedias %}
+                    <a href="{{s.social_url}}"><i class="fa fa-{{s.name}}"></i></a>
+<!--                    <a href="#"><i class="fa fa-twitter"></i></a>-->
+<!--                    <a href="#"><i class="fa fa-linkedin"></i></a>-->
+<!--                    <a href="#"><i class="fa fa-github"></i></a>-->
+                  {% endfor %}
+
+            </div>
+<!--        <li><a href="javascript:void(0)"><img src="{% static 'images/fb.svg' %}" alt="..."></a></li>-->
+<!--        <li><a href="javascript:void(0)"><img src="{% static 'images/insta.svg' %}" alt="..."></a></li>-->
+<!--        <li><a href="javascript:void(0)"><img src="{% static 'images/twitter.svg' %}" alt="..."></a></li>-->
+<!--        <li><a href="javascript:void(0)"><img src="{% static 'images/linkedin.svg' %}" alt="..."></a></li>-->
         </ul>
         <div class="copyrightCol">
-        <p>Copyright ©{% now 'Y' %} All rights reserved. Designed by <a href="https://jamesgrangerdesign.co.uk/" target="_blank">James Granger Design</a></p>
+        <p>Copyright ©{% now 'Y' %} All rights reserved. Designed by <a href="https://www.linkedin.com/in/franklinokech/" target="_blank">Franklin Okech</a></p>
         </div>
     </div>
     </div>

@@ -245,7 +245,7 @@ Start Content
           <div class="cardStyle1">
             <h4 class="mdTitle cs1Title"><a href="{% url 'resumeapp:blog' slug=b.slug %}">{{b.name}}</a></h4>
             <ul class="cardOptionCol">
-              <li>{{b.timestamp.date}}</li>
+              <li>{{b.date|date:'M d,Y' }}</li>
               <li>{{b.author}}</li>
             </ul>
             <p>{{b.description}}</p>

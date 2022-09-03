@@ -115,13 +115,14 @@ class Portfolio(models.Model):
 
 
 class Blog(models.Model):
+    author = models.ForeignKey(UserProfile, on_delete=models.CASCADE, related_name='blog_posts')
     date = models.DateTimeField()
     name = models.CharField(max_length=200)
     description = models.CharField(max_length=200)
     body = RichTextField()
     image = models.ImageField(upload_to='blog_images')
     slug = models.SlugField()
-    is_active = models.BooleanField(default=True)
+    is_active = models.BooleanField(default=False)
 
     def save(self, *args, **kwargs):
         if not self.id:
@@ -150,3 +151,26 @@ class Certificate(models.Model):
     class Meta:
         verbose_name_plural = 'Certificates'
         verbose_name = 'Certificate'
+
+
+SOCIAL_MEDIA_CHOICES = (
+    ("facebook", "Facebook"),
+    ("twitter", "Twitter"),
+    ("linkedin", "Linkedin"),
+    ("github", "Github"),
+)
+
+
+class SocialMedia(models.Model):
+    name = models.CharField(max_length=50, choices=SOCIAL_MEDIA_CHOICES)
+    social_url = models.URLField(max_length=200)
+    is_active = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name_plural = 'Social Medias'
+        verbose_name = 'Social Media'
+
+

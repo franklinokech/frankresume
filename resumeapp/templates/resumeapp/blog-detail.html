@@ -37,18 +37,19 @@ Start Content
       <div class="row g-4 g-md-3  align-items-center">
         <div class="col-md-6">
           <div class="bannerContent">
-            <h1 class="xlTitle pb-md-3">{{object.name|title}}</h1>
+            <h1 class="xlTitle pb-md-3">{{object.name}}</h1>
+<!--            <img src="{{ request.get_host }}/media/{{ object.image}}">-->
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-md-auto">
           <div class="authorCol">
-            <h4 class="smTitle pb-3">{{object.author|title}}</h4>
+            <h4 class="smTitle pb-3">{{object.author}}</h4>
           </div>
         </div>
         <div class="col-md">
-          <h4 class="smTitle pb-3">{{object.timestamp.date}}</h4>
+          <h4 class="smTitle pb-3">{{object.date|date:'M d,Y'}}</h4>
         </div>
       </div>
     </div>

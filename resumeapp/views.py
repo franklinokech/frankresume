@@ -5,7 +5,8 @@ from .models import (
     Blog,
     Testimonial,
     Certificate,
-    Portfolio
+    Portfolio,
+    SocialMedia,
 )
 
 from django.views import generic
@@ -22,11 +23,13 @@ class IndexView(generic.TemplateView):
         certificates = Certificate.objects.filter(is_active=True)
         blogs = Blog.objects.filter(is_active=True)
         portfolio = Portfolio.objects.filter(is_active=True)
+        socialmedias = SocialMedia.objects.filter(is_active=True)
 
         context['testimonials'] = testimonials
         context['certificates'] = certificates
         context['blogs'] = blogs
         context['portfolio'] = portfolio
+        context['socialmedias'] = socialmedias
 
         return context
 
@@ -68,3 +71,11 @@ class BlogView(generic.ListView):
 class BlogDetailView(generic.DetailView):
     model = Blog
     template_name = 'resumeapp/blog-detail.html'
+
+
+class SocialMediaView(generic.ListView):
+    model = SocialMedia
+    template_name = 'resumeapp/partials/footer.html'
+
+    def get_queryset(self):
+        return super().get_queryset().filter(is_active=True)
