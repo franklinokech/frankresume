@@ -88,6 +88,7 @@ Start Content
             <div class="progressCard">
               {% for sk in me.userprofile.skills.all %}
               {% if sk.is_key_skill %}
+              {% else %}
               <div class="progressCol">
                 <span class="progressLbl">{{sk.name}}</span>
                 <div class="row g-2 align-items-center">
