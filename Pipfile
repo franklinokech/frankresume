@@ -11,6 +11,7 @@ pillow = "*"
 django-ckeditor = "*"
 django-environ = "*"
 psycopg2-binary = "*"
+pyngrok = "*"
 
 [requires]
 python_version = "3.9"
